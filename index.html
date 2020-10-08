@@ -9,12 +9,16 @@
         margin: 0;
         font: 400 15px/1.8 "Lato", sans-serif;
         color: #777;
-        overflow-x: hidden;
+        
+      }
+
+      ::-webkit-scrollbar {
+          width: 0px;  /* Remove scrollbar space */
+          background: transparent;  /* Optional: just make scrollbar invisible */
       }
 
       .bgimg-1, .bgimg-2, .bgimg-3 {
         position: relative;
-        opacity: 0.65;
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
@@ -36,12 +40,19 @@
         min-height: 400px;
       }
 
-      /* #myVideo {
-        position: relative;
-        width: 100vw; 
-        height: 100vh; 
-      } */
+      .video-wrapper {
+        height: 100%;
+        width: 100%;
+      }
 
+      #myVideo {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
 
       .caption {
         position: absolute;
@@ -76,17 +87,12 @@
     </style>
   </head>
   <body>
-
-    <div class="bgimg-1">
-      <div class="caption">
-      <span class="border">SCROLL DOWN</span>
-      </div>
+    <div class="video-wrapper">
+      <video autoplay muted loop id="myVideo">
+        <source src="assets/video1.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
     </div>
-
-    <!-- <video autoplay muted loop id="myVideo">
-      <source src="assets/video1.mp4" type="video/mp4">
-      Your browser does not support HTML5 video.
-    </video> -->
 
     <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
       <h3 style="text-align:center;">Parallax Demo</h3>
@@ -122,6 +128,5 @@
       <span class="border">COOL!</span>
       </div>
     </div>
-
   </body>
 </html>
